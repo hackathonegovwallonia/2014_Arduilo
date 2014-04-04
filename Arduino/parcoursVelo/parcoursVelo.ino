@@ -242,7 +242,7 @@ void readline(void) {
 String dataStringGPSMethod(){
 
   
-  String dataStringGPS = "";
+  // String dataStringGPS = "";
   
   
   // mettre tout ceci dans une methode qui sera appellee une fois
@@ -250,10 +250,7 @@ String dataStringGPSMethod(){
   
   
    uint32_t tmp;
-  
-  Serial.print("\n\rRead: ");
-  dataStringGPS = dataStringGPS + "\n\rRead: ";
-  
+    
   readline();
   
   // check if $GPRMC (global positioning fixed data)
@@ -313,72 +310,35 @@ String dataStringGPSMethod(){
     // date
     parseptr = strchr(parseptr, ',')+1;
     tmp = parsedecimal(parseptr); 
-    date = tmp / 10000;
+    day = tmp / 10000;
     month = (tmp / 100) % 100;
     year = tmp % 100;
-    
-    Serial.print("\n\tTime: ");
-    Serial.print(hour, DEC); Serial.print(':');
-    Serial.print(minute, DEC); Serial.print(':');
-    Serial.println(second, DEC);
-    Serial.print("\tDate: ");
-    Serial.print(month, DEC); Serial.print('/');
-    Serial.print(date, DEC); Serial.print('/');
-    Serial.println(year, DEC);
-    
-    Serial.print("\tLat: "); 
-    
-    dataStringGPS = dataStringGPS + "\n\tTime: " + hour + ":" + minute + ":" + second;
-    dataStringGPS = dataStringGPS + "\tDate: " + month +"/" + date + "/" + year ;
-    dataStringGPS = dataStringGPS + "\tLat: ";
-    
-    //
-    
+        
+    String dataStringGPS = year + "-" + month + "-" + day + "_" hour + ":" + minute + ":" + second + "_";
+        
     if (latdir == 'N') {
-       Serial.print('+');
        dataStringGPS = dataStringGPS + "+";
-       
     }else if (latdir == 'S') {
-       Serial.print('-');
        dataStringGPS = dataStringGPS + "-";
-    
-  }
+    }
 
-    Serial.print(latitude/1000000, DEC); Serial.print("* ");
-    Serial.print((latitude/10000)%100, DEC); Serial.print('\''); Serial.print(' ');
-    Serial.print((latitude%10000)*6/1000, DEC); Serial.print('.');
-    Serial.print(((latitude%10000)*6/10)%100, DEC); Serial.println('"');
-   
-    Serial.print("\tLong: ");
     
-    dataStringGPS = dataStringGPS + latitude/1000000 + "* " + (latitude/10000)%100 + "' ";
-    dataStringGPS = dataStringGPS + (latitude%10000)*6/1000 + "." + ((latitude%10000)*6/10)%100 + "\"";
-    dataStringGPS = dataStringGPS + "\tLong: ";
+    dataStringGPS += latitude/1000000 + "* " + (latitude/10000)%100 + "' ";
+    dataStringGPS += (latitude%10000)*6/1000 + "." + ((latitude%10000)*6/10)%100 + "\"";
+    dataStringGPS += "_";
 
     
     
     if (longdir == 'E'){
-       Serial.print('+');
        dataStringGPS = dataStringGPS + "+";
     }else if (longdir == 'W'){
-       Serial.print('-');
        dataStringGPS = dataStringGPS + "-";
     }
-    Serial.print(longitude/1000000, DEC); Serial.print("* ");
-    Serial.print((longitude/10000)%100, DEC); Serial.print('\''); Serial.print(' ');
-    Serial.print((longitude%10000)*6/1000, DEC); Serial.print('.');
-    Serial.print(((longitude%10000)*6/10)%100, DEC); Serial.println('"');
-   
-    
-    // 
     dataStringGPS = dataStringGPS + longitude/1000000 + "* " + (longitude/10000)%100 + "' ";
     dataStringGPS = dataStringGPS + (longitude%10000)*6/1000 + "." + ((longitude%10000)*6/10)%100 + "\"";
    
-   
+  
   }
-  //Serial.println(buffer);
-
-
   
   // END integrer le code du GPS
 
