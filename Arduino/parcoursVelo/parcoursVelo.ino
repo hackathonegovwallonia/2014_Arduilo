@@ -96,7 +96,7 @@ char *parseptr;              // a character pointer for parsing
 char buffidx;                // an indexer into the buffer
 
 // The time, date, location data, etc.
-uint8_t hour, minute, second, year, month, date;
+uint8_t hour, minute, second, year, month, day;
 uint32_t latitude, longitude;
 uint8_t groundspeed, trackangle;
 char latdir, longdir;
@@ -242,7 +242,7 @@ void readline(void) {
 String dataStringGPSMethod(){
 
   
-  // String dataStringGPS = "";
+  String dataStringGPS = "";
   
   
   // mettre tout ceci dans une methode qui sera appellee une fois
@@ -314,7 +314,7 @@ String dataStringGPSMethod(){
     month = (tmp / 100) % 100;
     year = tmp % 100;
         
-    String dataStringGPS = year + "-" + month + "-" + day + "_" hour + ":" + minute + ":" + second + "_";
+    dataStringGPS = dataStringGPS + year + "-" + month + "-" + day + "_" + hour + ":" + minute + ":" + second + "_";
         
     if (latdir == 'N') {
        dataStringGPS = dataStringGPS + "+";
@@ -323,9 +323,7 @@ String dataStringGPSMethod(){
     }
 
     
-    dataStringGPS += latitude/1000000 + "* " + (latitude/10000)%100 + "' ";
-    dataStringGPS += (latitude%10000)*6/1000 + "." + ((latitude%10000)*6/10)%100 + "\"";
-    dataStringGPS += "_";
+    dataStringGPS += dataStringGPS + latitude/1000000 + "* " + (latitude/10000)%100 + "' " + (latitude%10000)*6/1000 + "." + ((latitude%10000)*6/10)%100 + "\"" + "_";
 
     
     
