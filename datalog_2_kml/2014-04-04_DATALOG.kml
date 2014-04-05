@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Placemark>
+    <name>Simple placemark</name>
+    <description>Attached to the ground. Intelligently places itself
+       at the height of the underlying terrain.</description>
+    <Point>
+      <coordinates>50.016419,4.015700</coordinates>
+      <coordinates>50.016419,4.015706</coordinates>
+      <coordinates>50.016417,4.015539</coordinates>
+      <coordinates>50.016639,4.015544</coordinates>
+      <coordinates>50.016611,4.015553</coordinates>
+      <coordinates>50.016500,4.015597</coordinates>
+      <coordinates>50.016500,4.015611</coordinates>
+      <coordinates>50.016417,4.015636</coordinates>
+      <coordinates>50.016386,4.015664</coordinates>
+      <coordinates>50.016383,4.015686</coordinates>
+      <coordinates>50.016383,4.015697</coordinates>
+      <coordinates>50.016378,4.015708</coordinates>
+      <coordinates>50.016375,4.015725</coordinates>
+      <coordinates>50.016372,4.015733</coordinates>
+      <coordinates>50.016369,4.015742</coordinates>
+      <coordinates>50.016367,4.015750</coordinates>
+      <coordinates>50.016367,4.015756</coordinates>
+      <coordinates>50.016361,4.015761</coordinates>
+      <coordinates>50.016361,4.015767</coordinates>
+      <coordinates>50.016361,4.015767</coordinates>
+      <coordinates>50.016358,4.015775</coordinates>
+      <coordinates>50.016358,4.015775</coordinates>
+      <coordinates>50.016361,4.015775</coordinates>
+      <coordinates>12.000000,50.008550</coordinates>
+      <coordinates>0.001500,0.000036</coordinates>
+      <coordinates>50.010108,4.006306</coordinates>
+      <coordinates>50.003917,0.000000</coordinates>
+      <coordinates>50.004983,4.006267</coordinates>
+    </Point>
+  </Placemark>
+</kml>
