@@ -111,7 +111,7 @@ char status;
 
 // constants won't change. They're used here to 
 // set pin numbers:
-const int buttonPin = 7;     // the number of the pushbutton pin --- in this format, i change the buttonPin to 7
+const int buttonPin = 8;     // the number of the pushbutton pin --- in this format, i change the buttonPin to 7
 const int ledPin =  13;      // the number of the LED pin
 
 const int chipSelect = 10;   // pour ecrire sur la carte SD
@@ -323,7 +323,7 @@ String dataStringGPSMethod(){
     }
 
     
-    dataStringGPS += dataStringGPS + latitude/1000000 + "* " + (latitude/10000)%100 + "' " + (latitude%10000)*6/1000 + "." + ((latitude%10000)*6/10)%100 + "\"" + "_";
+    dataStringGPS = dataStringGPS + latitude/1000000 + "* " + (latitude/10000)%100 + "' " + (latitude%10000)*6/1000 + "." + ((latitude%10000)*6/10)%100 + "\"" + "_";
 
     
     
